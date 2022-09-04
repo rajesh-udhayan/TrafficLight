@@ -9,6 +9,9 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,10 +21,12 @@ import androidx.compose.ui.unit.dp
 import com.anonymous.trafficlight.R
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.presentation.theme.Red400
-import com.anonymous.trafficlight.presentation.theme.gray
 
 @Composable
-fun TrafficLightView() {
+fun TrafficLightView(viewModel: MainViewModel) {
+    InitTrafficLight(viewModel)
+    val trafficLightState by viewModel.trafficLightState.observeAsState()
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -60,9 +65,9 @@ fun TrafficLightView() {
                         modifier = Modifier
                             .padding(16.dp)
                             .size(100.dp)
-                            .testTag(Constant.greenLightTag)
+                            .testTag(Constant.redLightTag)
                             .background(
-                                color = gray,
+                                color = viewModel.getRedLightColor(trafficLightState),
                                 shape = CircleShape
                             )
                             .border(4.dp, Color.DarkGray, CircleShape)
@@ -73,7 +78,7 @@ fun TrafficLightView() {
                             .size(100.dp)
                             .testTag(Constant.orangeLightTag)
                             .background(
-                                color = gray,
+                                color = viewModel.getOrangeLightColor(trafficLightState),
                                 shape = CircleShape
                             )
                             .border(4.dp, Color.DarkGray, CircleShape)
@@ -82,9 +87,9 @@ fun TrafficLightView() {
                         modifier = Modifier
                             .padding(16.dp)
                             .size(100.dp)
-                            .testTag(Constant.redLightTag)
+                            .testTag(Constant.greenLightTag)
                             .background(
-                                color = gray,
+                                color = viewModel.getGreenLightColor(trafficLightState),
                                 shape = CircleShape
                             )
                             .border(4.dp, Color.DarkGray, CircleShape)
@@ -93,4 +98,15 @@ fun TrafficLightView() {
             }
         }
     }
+}
+
+@Composable
+fun InitTrafficLight(viewModel: MainViewModel){
+    LaunchedEffect(key1 = Unit, block = {
+        try {
+            viewModel.initTrafficLight()
+        } catch (e: Exception){
+            e.printStackTrace()
+        }
+    })
 }
