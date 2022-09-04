@@ -27,4 +27,11 @@ class CarModelValidatorTest {
 
         assertThat(actual).isEqualTo(Constant.emptyCarModel)
     }
+
+    @Test
+    fun `should return invalid message when car model characters are less than three`(){
+        val actual = validator.validate("It")
+
+        assertThat(actual).isEqualTo(Constant.invalidCarModel)
+    }
 }

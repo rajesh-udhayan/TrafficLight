@@ -4,11 +4,14 @@ import com.anonymous.trafficlight.commons.Constant
 
 class CarModelValidator {
 
-    fun validate(model: String): String{
-        return if (model.isEmpty()) {
-            Constant.emptyCarModel
+    fun validate(model: String): String {
+        if (model.isEmpty()) {
+            return Constant.emptyCarModel
         } else {
-            Constant.success
+            if (model.length < 3) {
+                return Constant.invalidCarModel
+            }
+            return Constant.success
         }
     }
 }
