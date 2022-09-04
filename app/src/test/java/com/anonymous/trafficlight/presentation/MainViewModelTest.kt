@@ -24,12 +24,11 @@ class MainViewModelTest {
         validator = mockk()
         viewModel = MainViewModel(validator)
 
+        every { validator.validate("test") } returns success
     }
 
     @Test
     fun `should invoke validate method in validator when view model method called`() {
-        every { validator.validate("test") } returns success
-
         val result = viewModel.validateCarModel("test")
 
         verify { validator.validate("test") }
@@ -76,5 +75,14 @@ class MainViewModelTest {
         val result = viewModel.getOrangeLightColor(TrafficLightState.ORANGE)
 
         assertThat(result).isEqualTo(orange)
+    }
+
+    @Test
+    fun `should return correct car model when validate car model invoked`(){
+        val actualValue = "test"
+        viewModel.validateCarModel(actualValue)
+        val result = viewModel.getCarModel()
+
+        assertThat(result).isEqualTo(actualValue)
     }
 }

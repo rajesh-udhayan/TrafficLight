@@ -21,8 +21,14 @@ class MainViewModel @Inject constructor(private val modelValidator: ModelValidat
 
     private var mTrafficLightState = MutableLiveData<TrafficLightState>()
     val trafficLightState: LiveData<TrafficLightState> = mTrafficLightState
+    private lateinit var mCarModel: String
 
-    fun validateCarModel(carModel: String) = modelValidator.validate(carModel)
+    fun validateCarModel(carModel: String):String {
+        mCarModel = carModel
+        return modelValidator.validate(carModel)
+    }
+
+    fun getCarModel(): String = mCarModel
 
     fun getRedLightColor(lightState: TrafficLightState?): Color =
         if (lightState == TrafficLightState.RED) red else gray
