@@ -1,13 +1,17 @@
 package com.anonymous.trafficlight.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -39,36 +43,54 @@ fun TrafficLightView() {
                 text = stringResource(id = R.string.car_model, ""),
                 color = Red400
             )
+            Spacer(modifier = Modifier.size(16.dp))
             Box(
                 modifier = Modifier
-                    .padding(16.dp)
-                    .size(100.dp)
-                    .testTag(Constant.greenLightTag)
+                    .align(Alignment.CenterHorizontally)
+                    .padding(36.dp)
                     .background(
-                        color = gray,
-                        shape = CircleShape
+                        color = Color.Black,
+                        shape = RoundedCornerShape(64.dp)
                     )
-            )
-            Box(
-                modifier = Modifier
-                    .padding(16.dp)
-                    .size(100.dp)
-                    .testTag(Constant.orangeLightTag)
-                    .background(
-                        color = gray,
-                        shape = CircleShape
+                    .border(16.dp, Color.DarkGray, RoundedCornerShape(64.dp))
+                    .padding(24.dp)
+            ) {
+                Column {
+                    Box(
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .size(100.dp)
+                            .testTag(Constant.greenLightTag)
+                            .background(
+                                color = gray,
+                                shape = CircleShape
+                            )
+                            .border(4.dp, Color.DarkGray, CircleShape)
                     )
-            )
-            Box(
-                modifier = Modifier
-                    .padding(16.dp)
-                    .size(100.dp)
-                    .testTag(Constant.redLightTag)
-                    .background(
-                        color = gray,
-                        shape = CircleShape
+                    Box(
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .size(100.dp)
+                            .testTag(Constant.orangeLightTag)
+                            .background(
+                                color = gray,
+                                shape = CircleShape
+                            )
+                            .border(4.dp, Color.DarkGray, CircleShape)
                     )
-            )
+                    Box(
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .size(100.dp)
+                            .testTag(Constant.redLightTag)
+                            .background(
+                                color = gray,
+                                shape = CircleShape
+                            )
+                            .border(4.dp, Color.DarkGray, CircleShape)
+                    )
+                }
+            }
         }
     }
 }
