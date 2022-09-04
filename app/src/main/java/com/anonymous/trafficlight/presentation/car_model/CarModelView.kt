@@ -14,6 +14,7 @@ import com.anonymous.trafficlight.commons.Constant.enterCarModel
 import com.anonymous.trafficlight.presentation.MainViewModel
 import com.anonymous.trafficlight.presentation.navigation.Screen
 import com.anonymous.trafficlight.presentation.theme.Blue400
+import com.anonymous.trafficlight.presentation.theme.Typography
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -37,6 +38,7 @@ fun CarModelView(viewModel: MainViewModel, navController: NavController) {
             Text(
                 text = Constant.screenTitle,
                 color = Blue400,
+                style = Typography.h1
             )
         }
         Column(

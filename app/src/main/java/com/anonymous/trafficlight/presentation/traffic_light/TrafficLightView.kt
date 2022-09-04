@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import com.anonymous.trafficlight.R
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.presentation.theme.Red400
+import com.anonymous.trafficlight.presentation.theme.Typography
 
 @Composable
 fun TrafficLightView(viewModel: MainViewModel, navController: NavController) {
@@ -54,7 +55,8 @@ fun TrafficLightView(viewModel: MainViewModel, navController: NavController) {
             Text(
                 modifier = Modifier.testTag(Constant.carModelText),
                 text = stringResource(id = R.string.car_model, viewModel.getCarModel()),
-                color = Red400
+                color = Red400,
+                style = Typography.h2
             )
             Spacer(modifier = Modifier.size(16.dp))
             Box(
