@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.TextFieldValue
+import com.anonymous.trafficlight.commons.Constant
 
 @Composable
 fun CarModelView() {
@@ -19,20 +20,22 @@ fun CarModelView() {
 
     Scaffold {
         Column {
-            Text(text = "Traffic Light")
+            Text(text = Constant.screenTitle)
+
             TextField(modifier = Modifier
                 .fillMaxWidth()
-                .testTag("car_model_text_field"),
+                .testTag(Constant.carModelTextField),
                 value = carModel,
                 onValueChange = {
                     carModel = it
                 })
+
             Button(
                 onClick = {
 
                 }
             ) {
-                Text(text = "Start Driving")
+                Text(text = Constant.startDriving)
             }
         }
 
