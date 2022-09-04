@@ -2,8 +2,9 @@ package com.anonymous.trafficlight.domain
 
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.presentation.ModelValidator
+import javax.inject.Inject
 
-class CarModelValidator : ModelValidator{
+class CarModelValidator @Inject constructor(): ModelValidator{
 
     override fun validate(model: String): String {
         if (model.isEmpty()) {
