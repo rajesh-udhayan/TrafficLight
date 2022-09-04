@@ -53,7 +53,7 @@ fun TrafficLightView(viewModel: MainViewModel, navController: NavController) {
         ) {
             Text(
                 modifier = Modifier.testTag(Constant.carModelText),
-                text = stringResource(id = R.string.car_model, ""),
+                text = stringResource(id = R.string.car_model, viewModel.getCarModel()),
                 color = Red400
             )
             Spacer(modifier = Modifier.size(16.dp))

@@ -36,6 +36,7 @@ class TrafficLightViewTest {
             AppTheme {
                 val navController = rememberNavController()
                 val viewModel = composeTestRule.activity.viewModels<MainViewModel>().value
+                viewModel.validateCarModel("test")
                 TrafficLightView(viewModel,navController)
             }
         }
