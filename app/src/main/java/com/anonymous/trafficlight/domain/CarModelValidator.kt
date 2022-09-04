@@ -1,12 +1,14 @@
 package com.anonymous.trafficlight.domain
 
+import com.anonymous.trafficlight.commons.Constant
+
 class CarModelValidator {
 
     fun validate(model: String): String{
         return if (model.isEmpty()) {
-            "Please enter your car model"
+            Constant.emptyCarModel
         } else {
-            "success"
+            Constant.success
         }
     }
 }
