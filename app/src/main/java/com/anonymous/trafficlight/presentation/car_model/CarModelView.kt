@@ -1,10 +1,7 @@
 package com.anonymous.trafficlight.presentation.car_model
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -13,15 +10,22 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.commons.Constant.enterCarModel
+import com.anonymous.trafficlight.presentation.MainViewModel
 import com.anonymous.trafficlight.presentation.theme.Blue400
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @Composable
-fun CarModelView() {
+fun CarModelView(viewModel: MainViewModel) {
+    val scaffoldState: ScaffoldState = rememberScaffoldState()
+    val coroutineScope: CoroutineScope = rememberCoroutineScope()
     var carModel by remember {
         mutableStateOf(TextFieldValue(""))
     }
 
-    Scaffold {
+    Scaffold(
+        scaffoldState = scaffoldState
+    ) {
         Box(
             Modifier
                 .fillMaxWidth()
@@ -53,7 +57,12 @@ fun CarModelView() {
             Spacer(Modifier.size(16.dp))
             Button(
                 onClick = {
-
+                    val msg = viewModel.validateCarModel(carModel.text)
+                    coroutineScope.launch {
+                        scaffoldState.snackbarHostState.showSnackbar(
+                            message = msg
+                        )
+                    }
                 },
                 modifier = Modifier
                     .padding(all = 8.dp)
