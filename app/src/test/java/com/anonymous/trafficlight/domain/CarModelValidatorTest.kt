@@ -12,4 +12,12 @@ class CarModelValidatorTest {
 
         assertThat(actual).isEqualTo("success")
     }
+
+    @Test
+    fun `should return empty message when car model is empty`(){
+        val validator = CarModelValidator()
+        val actual = validator.validate("")
+
+        assertThat(actual).isEqualTo("Please enter your car model")
+    }
 }
