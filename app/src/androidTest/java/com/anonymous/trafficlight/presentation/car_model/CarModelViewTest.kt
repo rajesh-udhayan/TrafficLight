@@ -40,4 +40,13 @@ class CarModelViewTest {
             carModeltextField.assertIsDisplayed()
         }
     }
+
+    @Test
+    fun shouldDisplayStartDrivingButton(){
+        with(composeTestRule){
+            val startDrivingButton = onNodeWithText("Start Driving")
+
+            startDrivingButton.assertIsDisplayed()
+        }
+    }
 }

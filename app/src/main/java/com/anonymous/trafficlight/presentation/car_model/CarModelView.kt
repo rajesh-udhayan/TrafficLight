@@ -2,6 +2,7 @@ package com.anonymous.trafficlight.presentation.car_model
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -26,6 +27,13 @@ fun CarModelView() {
                 onValueChange = {
                     carModel = it
                 })
+            Button(
+                onClick = {
+
+                }
+            ) {
+                Text(text = "Start Driving")
+            }
         }
 
     }
