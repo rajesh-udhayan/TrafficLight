@@ -39,9 +39,15 @@ class TrafficLightViewTest {
         with(composeTestRule) {
             val title = onNodeWithText(activity.getString(R.string.app_name))
             val carModelText = onNodeWithTag(Constant.carModelText)
+            val greenLight = onNodeWithTag(Constant.greenLightTag)
+            val orangeLight = onNodeWithTag(Constant.orangeLightTag)
+            val redLight = onNodeWithTag(Constant.redLightTag)
 
             title.assertIsDisplayed()
             carModelText.assertIsDisplayed()
+            greenLight.assertIsDisplayed()
+            orangeLight.assertIsDisplayed()
+            redLight.assertIsDisplayed()
         }
     }
 }

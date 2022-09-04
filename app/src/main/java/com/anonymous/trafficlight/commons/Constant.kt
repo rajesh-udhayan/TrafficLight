@@ -11,4 +11,7 @@ object Constant {
     //test tags
     val carModelTextField = "car_model_text_field"
     val carModelText = "car_model_text"
+    val greenLightTag = "greenLight"
+    val orangeLightTag = "orangeLight"
+    val redLightTag = "redLight"
 }
