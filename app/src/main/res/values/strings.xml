@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TrafficLight-KBCExcercise</string>
+    <string name="car_model">Car Model: %1$s</string>
 </resources>

@@ -2,8 +2,10 @@ package com.anonymous.trafficlight.presentation.traffic_light
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import com.anonymous.trafficlight.R
+import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.presentation.MainActivity
 import com.anonymous.trafficlight.presentation.TrafficLightView
 import com.anonymous.trafficlight.presentation.theme.AppTheme
@@ -36,8 +38,10 @@ class TrafficLightViewTest {
     fun shouldDisplayUIElements() {
         with(composeTestRule) {
             val title = onNodeWithText(activity.getString(R.string.app_name))
+            val carModelText = onNodeWithTag(Constant.carModelText)
 
             title.assertIsDisplayed()
+            carModelText.assertIsDisplayed()
         }
     }
 }
