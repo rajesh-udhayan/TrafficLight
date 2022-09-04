@@ -8,15 +8,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.commons.Constant.enterCarModel
 import com.anonymous.trafficlight.presentation.MainViewModel
+import com.anonymous.trafficlight.presentation.navigation.Screen
 import com.anonymous.trafficlight.presentation.theme.Blue400
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun CarModelView(viewModel: MainViewModel) {
+fun CarModelView(viewModel: MainViewModel, navController: NavController) {
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     val coroutineScope: CoroutineScope = rememberCoroutineScope()
     var carModel by remember {
@@ -58,10 +60,14 @@ fun CarModelView(viewModel: MainViewModel) {
             Button(
                 onClick = {
                     val msg = viewModel.validateCarModel(carModel.text)
-                    coroutineScope.launch {
-                        scaffoldState.snackbarHostState.showSnackbar(
-                            message = msg
-                        )
+                    if (msg.equals(Constant.success)) {
+                        navController.navigate(Screen.TrafficLightScreen.route)
+                    } else {
+                        coroutineScope.launch {
+                            scaffoldState.snackbarHostState.showSnackbar(
+                                message = msg
+                            )
+                        }
                     }
                 },
                 modifier = Modifier

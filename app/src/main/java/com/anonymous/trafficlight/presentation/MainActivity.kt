@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import com.anonymous.trafficlight.presentation.car_model.CarModelView
+import com.anonymous.trafficlight.presentation.navigation.Navigation
 import com.anonymous.trafficlight.presentation.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +21,7 @@ class MainActivity: ComponentActivity() {
         setContent {
             AppTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    CarModelView(viewModel)
+                    Navigation(viewModel = viewModel)
                 }
             }
         }

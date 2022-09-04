@@ -5,9 +5,9 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -18,12 +18,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.anonymous.trafficlight.R
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.presentation.theme.Red400
 
 @Composable
-fun TrafficLightView(viewModel: MainViewModel) {
+fun TrafficLightView(viewModel: MainViewModel, navController: NavController) {
     InitTrafficLight(viewModel)
     val trafficLightState by viewModel.trafficLightState.observeAsState()
 
@@ -34,6 +35,13 @@ fun TrafficLightView(viewModel: MainViewModel) {
                     Text(
                         text = stringResource(id = R.string.app_name)
                     )
+                },
+                navigationIcon = {
+                    IconButton(onClick = {
+                        navController.navigateUp()
+                    }) {
+                        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back")
+                    }
                 }
             )
         }

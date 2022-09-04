@@ -5,6 +5,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.navigation.compose.rememberNavController
 import com.anonymous.trafficlight.R
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.presentation.MainActivity
@@ -33,8 +34,9 @@ class TrafficLightViewTest {
         hiltTestRule.inject()
         composeTestRule.setContent {
             AppTheme {
+                val navController = rememberNavController()
                 val viewModel = composeTestRule.activity.viewModels<MainViewModel>().value
-                TrafficLightView(viewModel)
+                TrafficLightView(viewModel,navController)
             }
         }
     }
