@@ -122,6 +122,18 @@ class CarModelViewTest {
         }
     }
 
+    @Test
+    fun shouldDisplayCarModelTextInTrafficLightScreenPassedFromCarModelScreen(){
+        with(composeTestRule){
+            val carModel = "ford"
+            navigateToTrafficLightScreen(carModel)
+            val carModelTextView = onNodeWithText(composeTestRule.activity.getString(R.string.car_model, carModel))
+
+            waitForIdle()
+            carModelTextView.assertIsDisplayed()
+        }
+    }
+
     private fun AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>.navigateToTrafficLightScreen(carModel: String) {
         val carModelText = onNodeWithTag(Constant.carModelTextField)
         val startDrivingButton = onNodeWithText(Constant.startDriving)
