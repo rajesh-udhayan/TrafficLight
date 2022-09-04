@@ -16,7 +16,7 @@ private val ColorPalette = lightColors(
 fun AppTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colors = ColorPalette,
-        typography = Typography(),
+        typography = Typography,
         shapes = Shapes(),
         content = content
     )
