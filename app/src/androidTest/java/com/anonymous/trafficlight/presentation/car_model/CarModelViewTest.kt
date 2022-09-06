@@ -15,7 +15,7 @@ import com.anonymous.trafficlight.R
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.presentation.MainActivity
 import com.anonymous.trafficlight.presentation.MainViewModel
-import com.anonymous.trafficlight.presentation.TrafficLightView
+import com.anonymous.trafficlight.presentation.traffic_light.TrafficLightView
 import com.anonymous.trafficlight.presentation.navigation.Screen
 import com.anonymous.trafficlight.presentation.theme.AppTheme
 import com.google.common.truth.Truth

@@ -10,7 +10,6 @@ import com.anonymous.trafficlight.R
 import com.anonymous.trafficlight.commons.Constant
 import com.anonymous.trafficlight.presentation.MainActivity
 import com.anonymous.trafficlight.presentation.MainViewModel
-import com.anonymous.trafficlight.presentation.TrafficLightView
 import com.anonymous.trafficlight.presentation.theme.*
 import com.anonymous.trafficlight.utils.assertContainsColor
 import com.anonymous.trafficlight.utils.asyncTimer

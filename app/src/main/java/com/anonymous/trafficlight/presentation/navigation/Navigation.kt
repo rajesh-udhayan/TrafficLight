@@ -5,7 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.anonymous.trafficlight.presentation.MainViewModel
-import com.anonymous.trafficlight.presentation.TrafficLightView
+import com.anonymous.trafficlight.presentation.traffic_light.TrafficLightView
 import com.anonymous.trafficlight.presentation.car_model.CarModelView
 
 @Composable

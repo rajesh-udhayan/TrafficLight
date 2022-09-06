@@ -1,4 +1,4 @@
-package com.anonymous.trafficlight.presentation
+package com.anonymous.trafficlight.presentation.traffic_light
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.anonymous.trafficlight.R
 import com.anonymous.trafficlight.commons.Constant
+import com.anonymous.trafficlight.presentation.MainViewModel
 import com.anonymous.trafficlight.presentation.theme.Red400
 import com.anonymous.trafficlight.presentation.theme.Typography
 
