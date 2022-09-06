@@ -3,6 +3,7 @@ package com.anonymous.trafficlight.presentation.car_model
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -22,8 +23,8 @@ import kotlinx.coroutines.launch
 fun CarModelView(viewModel: MainViewModel, navController: NavController) {
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     val coroutineScope: CoroutineScope = rememberCoroutineScope()
-    var carModel by remember {
-        mutableStateOf(TextFieldValue(""))
+    var carModel by rememberSaveable {
+        mutableStateOf("")
     }
 
     Scaffold(
@@ -61,7 +62,7 @@ fun CarModelView(viewModel: MainViewModel, navController: NavController) {
             Spacer(Modifier.size(16.dp))
             Button(
                 onClick = {
-                    val msg = viewModel.validateCarModel(carModel.text)
+                    val msg = viewModel.validateCarModel(carModel)
                     if (msg.equals(Constant.success)) {
                         navController.navigate(Screen.TrafficLightScreen.route)
                     } else {
