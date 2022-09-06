@@ -10,7 +10,7 @@ class CarModelValidator @Inject constructor(): ModelValidator{
         if (model.isEmpty()) {
             return Constant.emptyCarModel
         } else {
-            if (model.length < 3) {
+            if (model.length < Constant.MIN_CHAR_LENGTH) {
                 return Constant.invalidCarModel
             }
             return Constant.success
